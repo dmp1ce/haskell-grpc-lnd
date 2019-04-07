@@ -3,5 +3,4 @@ haskell-lnd-rpc.cabal
 *~
 protos
 gen-bin
-gen
 dist-newstyle
