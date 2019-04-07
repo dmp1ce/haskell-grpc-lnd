@@ -1,0 +1,51 @@
+name:                grpc-lnd-client
+version:             0.1.0.0
+github:              "dmp1ce/haskell-grpc-lnd"
+license:             PublicDomain
+author:              "David Parrish"
+maintainer:          "daveparrish@tutanota.com"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            LND gRPC client
+category:            Lightning Network
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/dmp1ce/haskell-grpc-lnd/grpc-lnd-client#readme>
+
+default-extensions:
+  - DataKinds
+  - OverloadedStrings
+
+dependencies:
+- base >= 4.7 && < 5
+- grpc-api-lnd
+- network
+- x509-store
+- x509-validation
+- http2-client-grpc
+- tls
+- data-default-class
+- lens
+- proto-lens
+- bytestring
+
+library:
+  source-dirs: src
+  ghc-options: -Wall -Werror -O2
+
+tests:
+  grpc-lnd-client-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - grpc-lnd-client

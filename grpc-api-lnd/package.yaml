@@ -1,0 +1,54 @@
+name:                grpc-api-lnd
+version:             0.1.0.0
+github:              "dmp1ce/haskell-grpc-lnd"
+license:             PublicDomain
+author:              "David Parrish"
+maintainer:          "daveparrish@tutanota.com"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+synopsis:            Generated gRPC for LND
+category:            Lightning Network
+
+description:         Please see the README on GitHub at <https://github.com/dmp1ce/haskell-grpc-lnd/grpc-api-lnd#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- proto-lens-protobuf-types
+- proto-lens
+- proto-lens-runtime
+
+library:
+  source-dirs:
+    - gen
+  ghc-options: -Wall -Werror -O2
+  exposed-modules:
+    - Proto.Rpc
+    - Proto.Rpc_Fields
+    - Proto.Autopilotrpc.Autopilot
+    - Proto.Autopilotrpc.Autopilot_Fields
+    - Proto.Chainrpc.Chainnotifier
+    - Proto.Chainrpc.Chainnotifier_Fields
+    - Proto.Invoicesrpc.Invoices
+    - Proto.Invoicesrpc.Invoices_Fields
+    - Proto.Routerrpc.Router
+    - Proto.Routerrpc.Router_Fields
+    - Proto.Signrpc.Signer
+    - Proto.Signrpc.Signer_Fields
+    - Proto.Walletrpc.Walletkit
+    - Proto.Walletrpc.Walletkit_Fields
+    - Proto.Google.Api.Annotations
+    - Proto.Google.Api.Http
+
+tests:
+  lnd-rpc-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - grpc-api-lnd
